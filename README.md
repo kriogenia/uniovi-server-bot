@@ -39,6 +39,10 @@ Siguiente actualización:
 
 -/-: Lanzamiento de dados para juegos de tiradas de salvación
 
+-/-: Mejora del comando Minecraft (mostrar servidor al ponerlo online e intercambiar los emotes)
+
+-/-: Arreglo del comando ñe
+
 ----------------------------------------------------------------------------------------------
 
 Opciones futuras:
