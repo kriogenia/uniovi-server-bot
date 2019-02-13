@@ -21,17 +21,7 @@ namespace UniOviServerBot.Core.Commands
 			/// <returns></returns>
 			[Command(""), Alias("show", "info"), Summary("Muestra la información del servidor actual")]
 			public async Task List() {
-				EmbedBuilder builder = new EmbedBuilder();
-				// Establece la descripción en base a que el servidor esté o no online
-				if (mc.IsOnline)
-					builder.WithDescription(":white_check_mark: **Online**");
-				else
-					builder.WithDescription(":red_circle: Offline");
-				// Añade el resto de información y la devuelve
-				builder.AddField("IP", mc.IP, true);
-				builder.AddField("Tipo", mc.Type, true);
-				builder.WithThumbnailUrl("https://static.planetminecraft.com/files/avatar/1584923_0.png");
-				await Context.Channel.SendMessageAsync(embed: builder.Build());
+				await Context.Channel.SendMessageAsync(embed: Show().Build());
 			}
 
 			/// <summary>
@@ -74,7 +64,7 @@ namespace UniOviServerBot.Core.Commands
 			[Command("offline"), Alias("off"), Summary("Establece el servidor como offline")]
 			public async Task SetOffline() {
 				mc.SetOffline();
-				await Context.Channel.SendMessageAsync($":ok_hand: El servidor se ha establecido offline correctamente");
+				await Context.Channel.SendMessageAsync($":ok_hand: El servidor se ha establecido offline correctamente :sleeping:");
 			}
 
 			/// <summary>
@@ -84,7 +74,23 @@ namespace UniOviServerBot.Core.Commands
 			[Command("online"), Alias("on"), Summary("Establece el servidor como online")]
 			public async Task SetOnline() {
 				mc.SetOnline();
-				await Context.Channel.SendMessageAsync($":ok_hand: El servidor se ha establecido online correctamente :sleeping:");
+				EmbedBuilder builder = Show();
+				builder.WithAuthor($"El servidor se ha establecido online correctamente");
+				await Context.Channel.SendMessageAsync(embed: builder.Build());
+			}
+
+			public EmbedBuilder Show() {
+				EmbedBuilder builder = new EmbedBuilder();
+				// Establece la descripción en base a que el servidor esté o no online
+				if (mc.IsOnline)
+					builder.WithDescription(":white_check_mark: **Online**");
+				else
+					builder.WithDescription(":red_circle: Offline");
+				// Añade el resto de información y la devuelve
+				builder.AddField("IP", mc.IP, true);
+				builder.AddField("Tipo", mc.Type, true);
+				builder.WithThumbnailUrl("https://static.planetminecraft.com/files/avatar/1584923_0.png");
+				return builder;
 			}
 		}
 	}
