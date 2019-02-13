@@ -35,7 +35,7 @@ Registro:
 
 Progreso de la siguiente actualización:
 
--/-: Introducción de comando ping
+13/02: Introducción de comando ping
 
 -/-: Lanzamiento de dados para juegos de tiradas de salvación
 
