@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.IO;
 
 namespace Tajes.Resources.Database
 {
@@ -8,7 +9,7 @@ namespace Tajes.Resources.Database
 		public DbSet<UniOviUser> UniOviUsers { get; set; }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder options) {
-			string DbLocation = Environment.CurrentDirectory + "/../../../Data/";
+			string DbLocation = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "/../Data/";
 			options.UseSqlite($"Data Source={DbLocation}Database.sqlite");
 		}
 	}

@@ -32,7 +32,7 @@ namespace Tajes.Core.Commands
 		public async Task Campus() {
 			// Inicializa los parámetros necesarios
 			// string path = "Data/campus.txt";
-			string path = Environment.CurrentDirectory + "/../../../Data/campus.txt";
+			string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "/../Data/campus.txt";
 			string[] lines = File.ReadAllLines(path);
 			string[] fields;
 			string desc = "";
@@ -61,6 +61,15 @@ namespace Tajes.Core.Commands
 			for (int i = 0; i < number; i++)
 				ñeñe += ñe;
 			await Context.Channel.SendMessageAsync(ñeñe);
+		}
+
+		/// <summary>
+		/// Devuelve la latencia en milisegundos
+		/// </summary>
+		/// <returns></returns>
+		[Command("ping"), Summary("Devuelve la latencia en milisegundos")]
+		public async Task Ping() {
+			await Context.Channel.SendMessageAsync(Context.Client.Latency + " ms");
 		}
 	}
 }
