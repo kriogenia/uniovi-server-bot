@@ -32,7 +32,7 @@ namespace Tajes.Core.Commands
 		public async Task Campus() {
 			// Inicializa los parámetros necesarios
 			// string path = "Data/campus.txt";
-			string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "/../Data/campus.txt";
+			string path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "/Data/campus.txt";
 			string[] lines = File.ReadAllLines(path);
 			string[] fields;
 			string desc = "";

@@ -43,7 +43,7 @@ namespace Tajes
 			client.Ready += Ready;
 			client.Log += Log;
 			//  Lectura del token del bot y logueo
-			string token = File.ReadAllText(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "/../Data/token.txt");
+			string token = File.ReadAllText(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "/Data/token.txt");
 			await client.LoginAsync(TokenType.Bot, token);
 			await client.StartAsync();
 

@@ -14,7 +14,7 @@ namespace UniOviServerBot.Resources.Datatypes
 		public string IP { get; private set; }
 		public string Type { get; private set; }
 		// Ruta
-		public string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "/../Data/minecraft.txt";
+		public string path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "/Data/minecraft.txt";
 
 		/// <summary>
 		/// Constructor de la clase, carga la información del fichero
