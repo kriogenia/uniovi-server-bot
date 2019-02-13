@@ -1,5 +1,5 @@
-﻿using System.IO;
-using System.Reflection;
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
@@ -31,7 +31,8 @@ namespace Tajes.Core.Commands
 		[Command("campus"), Summary("Muestra una lista con enlaces a las asignaturas en el campus virtual")]
 		public async Task Campus() {
 			// Inicializa los parámetros necesarios
-			string path = "Data/campus.txt";
+			// string path = "Data/campus.txt";
+			string path = Environment.CurrentDirectory + "/../../../Data/campus.txt";
 			string[] lines = File.ReadAllLines(path);
 			string[] fields;
 			string desc = "";
@@ -54,8 +55,12 @@ namespace Tajes.Core.Commands
 		/// <returns></returns>
 		[Command("ñe"), Summary("ñeñeñeñeñeñeñeñeñeñeñeñe")]
 		public async Task Ñe() {
-			await Context.Channel.SendMessageAsync("ñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñe");
+			string ñe = "ñeñeñeñeñeñeñeñeñeñeñeñe";
+			string ñeñe = "";
+			int number = new Random().Next(1, 10);
+			for (int i = 0; i < number; i++)
+				ñeñe += ñe;
+			await Context.Channel.SendMessageAsync(ñeñe);
 		}
-
 	}
 }
