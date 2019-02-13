@@ -5,7 +5,7 @@ Autor: Ricardo Soto Estévez
 
 Fecha de inicio: 08/02/2019
 
-Versión actual: 1.0
+Versión actual: 1.1
 
 ----------------------------------------------------------------------------------------------
 
@@ -31,17 +31,13 @@ Registro:
 
 11/02: Adecuacióna a Linux y lanzamiento y puesta en funcionamiento de la primera versión completa
 
+13/02: Introducción de comando ping y refinamiento de ñe y minecraft
+
 ----------------------------------------------------------------------------------------------
 
 Progreso de la siguiente actualización:
 
-13/02: Introducción de comando ping
-
 -/-: Lanzamiento de dados para juegos de tiradas de salvación
-
-13/02: Mejora del comando Minecraft (mostrar servidor al ponerlo online e intercambiar los emotes)
-
-13/02: Arreglo del comando ñe
 
 ----------------------------------------------------------------------------------------------
 
