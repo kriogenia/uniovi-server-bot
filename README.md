@@ -33,7 +33,7 @@ Registro:
 
 ----------------------------------------------------------------------------------------------
 
-Siguiente actualización:
+Progreso de la siguiente actualización:
 
 -/-: Introducción de comando ping
 
@@ -41,7 +41,7 @@ Siguiente actualización:
 
 -/-: Mejora del comando Minecraft (mostrar servidor al ponerlo online e intercambiar los emotes)
 
--/-: Arreglo del comando ñe
+13/02: Arreglo del comando ñe
 
 ----------------------------------------------------------------------------------------------
 
