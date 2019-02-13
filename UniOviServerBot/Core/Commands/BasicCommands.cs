@@ -1,5 +1,5 @@
-﻿using System.IO;
-using System.Reflection;
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
@@ -31,7 +31,8 @@ namespace Tajes.Core.Commands
 		[Command("campus"), Summary("Muestra una lista con enlaces a las asignaturas en el campus virtual")]
 		public async Task Campus() {
 			// Inicializa los parámetros necesarios
-			string path = "Data/campus.txt";
+			// string path = "Data/campus.txt";
+			string path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "/Data/campus.txt";
 			string[] lines = File.ReadAllLines(path);
 			string[] fields;
 			string desc = "";
@@ -54,8 +55,21 @@ namespace Tajes.Core.Commands
 		/// <returns></returns>
 		[Command("ñe"), Summary("ñeñeñeñeñeñeñeñeñeñeñeñe")]
 		public async Task Ñe() {
-			await Context.Channel.SendMessageAsync("ñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñeñe");
+			string ñe = "ñeñeñeñeñeñeñeñeñeñeñeñe";
+			string ñeñe = "";
+			int number = new Random().Next(1, 10);
+			for (int i = 0; i < number; i++)
+				ñeñe += ñe;
+			await Context.Channel.SendMessageAsync(ñeñe);
 		}
 
+		/// <summary>
+		/// Devuelve la latencia en milisegundos
+		/// </summary>
+		/// <returns></returns>
+		[Command("ping"), Summary("Devuelve la latencia en milisegundos")]
+		public async Task Ping() {
+			await Context.Channel.SendMessageAsync(Context.Client.Latency + " ms");
+		}
 	}
 }

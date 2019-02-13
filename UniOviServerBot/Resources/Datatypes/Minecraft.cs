@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
-using System.Text;
 
 namespace UniOviServerBot.Resources.Datatypes
 {
@@ -11,12 +8,13 @@ namespace UniOviServerBot.Resources.Datatypes
 	/// </summary>
 	public class Minecraft
 	{
+
 		// Propiedades
 		public bool IsOnline { get; private set; }
 		public string IP { get; private set; }
 		public string Type { get; private set; }
-		// Ruta del fichero
-		public static string PATH = "Data/minecraft.txt";
+		// Ruta
+		public string path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "/Data/minecraft.txt";
 
 		/// <summary>
 		/// Constructor de la clase, carga la información del fichero
@@ -29,7 +27,7 @@ namespace UniOviServerBot.Resources.Datatypes
 		/// Lee el fichero de información del servidor y carga la información al objeto
 		/// </summary>
 		private void LoadInfo() {
-			string[] lines = File.ReadAllLines(PATH, Encoding.UTF8);
+			string[] lines = File.ReadAllLines(path);
 			IsOnline = Int32.Parse(lines[0]) == 1;
 			IP = lines[1];
 			Type = lines[2];
@@ -45,7 +43,7 @@ namespace UniOviServerBot.Resources.Datatypes
 			else
 				online = "0";
 			string[] info = { online, IP, Type };
-			File.WriteAllLines(PATH, info);
+			File.WriteAllLines(path, info);
 		}
 
 		/// <summary>
